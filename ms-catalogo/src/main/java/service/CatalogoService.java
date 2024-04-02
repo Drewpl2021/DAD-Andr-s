@@ -7,8 +7,8 @@ import java.util.Optional;
 
 public interface CatalogoService {
     public List<Catalogo> listar();
-    public Catalogo guardar(Catalogo Catalogo);
-    public Catalogo actualizar(Catalogo Catalogo);
+    public Catalogo guardar(Catalogo catalogo);
+    public Catalogo actualizar(Catalogo catalogo);
     public Optional<Catalogo> listarPorId(Integer id);
     public void eliminarPorId(Integer id);
 }
