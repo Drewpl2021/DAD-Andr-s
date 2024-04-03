@@ -1,17 +1,14 @@
-package service.impl;
-
-import entity.Catalogo;
+package com.example.mscatalogo.service.impl;
+import com.example.mscatalogo.entity.Catalogo;
+import com.example.mscatalogo.repository.CatalogoRepository;
+import com.example.mscatalogo.service.CatalogoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.CatalogoRepository;
-import service.CatalogoService;
-
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class CatalogoServiceimpl implements CatalogoService {
-
     @Autowired
     private CatalogoRepository catalogoRepository;
     @Override

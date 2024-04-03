@@ -1,15 +1,15 @@
-package controller;
+package com.example.mscatalogo.controller;
 
-import entity.Catalogo;
+import com.example.mscatalogo.entity.Catalogo;
+import com.example.mscatalogo.service.CatalogoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.CatalogoService;
 
 import java.util.List;
 @RestController
-@RequestMapping("/catalogo")
-public class CatalogoController {
+@RequestMapping("/categoria")
+public class CategoriaController {
     @Autowired
     private CatalogoService catalogoService;
     @GetMapping()
@@ -17,12 +17,12 @@ public class CatalogoController {
         return ResponseEntity.ok().body(catalogoService.listar());
     }
     @PostMapping()
-    public ResponseEntity<Catalogo> save(@RequestBody Catalogo cliente){
-        return ResponseEntity.ok(catalogoService.guardar(cliente));
+    public ResponseEntity<Catalogo> save(@RequestBody Catalogo catalogo){
+        return ResponseEntity.ok(catalogoService.guardar(catalogo));
     }
     @PutMapping()
-    public ResponseEntity<Catalogo> update(@RequestBody Catalogo cliente){
-        return ResponseEntity.ok(catalogoService.actualizar(cliente));
+    public ResponseEntity<Catalogo> update(@RequestBody Catalogo catalogo){
+        return ResponseEntity.ok(catalogoService.actualizar(catalogo));
     }
     @GetMapping("/{id}")
     public ResponseEntity<Catalogo> listById(@PathVariable(required = true) Integer id){
