@@ -1,7 +1,9 @@
 package service.impl;
 
 import entity.Catalogo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import repository.CatalogoRepository;
 import service.CatalogoService;
 
 import java.util.List;
@@ -10,28 +12,26 @@ import java.util.Optional;
 @Service
 public class CatalogoServiceimpl implements CatalogoService {
 
+    @Autowired
+    private CatalogoRepository catalogoRepository;
     @Override
-    public List<Catalogo> listar() {
-        return null;
+    public List<Catalogo> listar(){
+        return catalogoRepository.findAll();
     }
-
     @Override
-    public Catalogo guardar(Catalogo Catalogo) {
-        return null;
+    public Catalogo guardar(Catalogo catalogo) {
+        return catalogoRepository.save(catalogo);
     }
-
     @Override
-    public Catalogo actualizar(Catalogo Catalogo) {
-        return null;
+    public Catalogo actualizar(Catalogo catalogo) {
+        return catalogoRepository.save(catalogo);
     }
-
     @Override
-    public Optional<Catalogo> listarPorId(Integer id) {
-        return Optional.empty();
+    public Optional<Catalogo> listarPorId(Integer id){
+        return catalogoRepository.findById(id);
     }
-
     @Override
     public void eliminarPorId(Integer id) {
-
+        catalogoRepository.deleteById(id);
     }
 }
