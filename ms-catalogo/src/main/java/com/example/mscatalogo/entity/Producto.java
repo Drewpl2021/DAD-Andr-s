@@ -12,16 +12,16 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String fechaVenta;
-    private Integer cantidadProductos;
+    private int cantidadProductos;
     private String metodoPago;
     private String nombreCliente;
     private String direccionCliente;
     private String correoCliente;
     private String telefonoCliente;
     private String productoVendido;
-    private Integer precioProducto;
+    private double precioProducto;
 
     @ManyToOne
     @JoinColumn(name = "catalogo_id")
-    private Producto catalogo;
+    private Catalogo catalogo;
 }
