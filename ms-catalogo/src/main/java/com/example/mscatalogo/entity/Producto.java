@@ -24,4 +24,7 @@ public class Producto {
     @ManyToOne
     @JoinColumn(name = "catalogo_id")
     private Catalogo catalogo;
+
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
+    private List<Catalogo> catalogo;
 }
