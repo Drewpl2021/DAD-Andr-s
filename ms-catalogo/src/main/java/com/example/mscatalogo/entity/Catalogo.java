@@ -1,10 +1,9 @@
 package com.example.mscatalogo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -13,4 +12,7 @@ public class Catalogo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
+
+    @OneToMany(mappedBy = "catalogo", cascade = CascadeType.ALL)
+    private List<Producto> productos;
 }
