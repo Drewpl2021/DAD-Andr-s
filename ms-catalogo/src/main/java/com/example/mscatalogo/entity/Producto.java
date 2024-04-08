@@ -26,5 +26,5 @@ public class Producto {
     private Catalogo catalogo;
 
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
-    private List<Catalogo> catalogo;
+    private List<Catalogo> catalogos;
 }
