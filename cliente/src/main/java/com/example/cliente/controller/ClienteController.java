@@ -26,7 +26,7 @@ public class ClienteController {
         return ResponseEntity.ok(clienteService.actualizar(cliente));
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Cliente> listById(@PathVariable(required = true) Integer id){
+    public ResponseEntity<Cliente> listarPorId(@PathVariable(required = true) Integer id){
         return ResponseEntity.ok().body(clienteService.listarPorId(id).get());
     }
     @DeleteMapping("/{id}")

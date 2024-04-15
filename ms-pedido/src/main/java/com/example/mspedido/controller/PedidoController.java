@@ -18,19 +18,19 @@ public class PedidoController {
         return ResponseEntity.ok().body(pedidoService.listar());
     }
     @PostMapping()
-    public ResponseEntity<Pedido> save(@RequestBody Pedido pedido){
+    public ResponseEntity<Pedido> guardar(@RequestBody Pedido pedido){
         return ResponseEntity.ok(pedidoService.guardar(pedido));
     }
     @PutMapping()
-    public ResponseEntity<Pedido> update(@RequestBody Pedido pedido){
+    public ResponseEntity<Pedido> actualizar(@RequestBody Pedido pedido){
         return ResponseEntity.ok(pedidoService.actualizar(pedido));
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Pedido> listById(@PathVariable(required = true) Integer id){
+    public ResponseEntity<Pedido> listarPorId(@PathVariable(required = true) Integer id){
         return ResponseEntity.ok().body(pedidoService.listarPorId(id).get());
     }
     @DeleteMapping("/{id}")
-    public String deleteById(@PathVariable(required = true) Integer id){ pedidoService.eliminarPorId(id);
+    public String eliminarPorId(@PathVariable(required = true) Integer id){ pedidoService.eliminarPorId(id);
         return "Eliminado Correctamente :3";
     }
 }
