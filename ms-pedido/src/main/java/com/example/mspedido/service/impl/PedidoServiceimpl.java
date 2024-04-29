@@ -17,6 +17,7 @@ import java.util.Optional;
 public class PedidoServiceimpl implements PedidoService {
     @Autowired
     private PedidoRepository pedidoRepository;
+    @Autowired
     private ProductoFeign productoFeign;
     @Autowired
     private ClienteFeign clienteFeign;
@@ -39,6 +40,8 @@ public class PedidoServiceimpl implements PedidoService {
         ClienteDto clienteDto= clienteFeign.listById(pedido.get().getClienteId()).getBody();
 
         List<PedidoDetalle> pedidoDetalles=pedido.get().getDetalle().stream().map(pedidoDetalle -> {
+            System.out.println(pedidoDetalle.getProductoId());
+            System.out.println(productoFeign.listarPorId(pedidoDetalle.getProductoId()).getBody().toString());
             pedidoDetalle.setProductoDto(productoFeign.listarPorId(pedidoDetalle.getProductoId()).getBody());
             return pedidoDetalle;
         }).toList();
