@@ -15,6 +15,7 @@ public interface ClienteFeign {
     public ResponseEntity<ClienteDto> listById(@PathVariable(required = true) Integer id);
     default ResponseEntity<ClienteDto>fallBackCliente(Integer id, Exception e) {
 
+        
         return  ResponseEntity.ok(new ClienteDto());
     }
 }
