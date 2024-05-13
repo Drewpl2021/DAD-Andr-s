@@ -1,7 +1,5 @@
 server:
-
   port: ${PORT:${SERVER_PORT:0}}
-
 
 spring:
   jpa:
@@ -14,12 +12,12 @@ spring:
     username: root
     password:
 
-
 eureka:
   client:
     serviceUrl:
-
       defaultZone: ${EUREKA_URI:http://localhost:8090/eureka}
   instance:
-
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+jwt:
+  secret: secret
