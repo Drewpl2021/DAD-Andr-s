@@ -1,13 +1,10 @@
 package com.example.msauth.security;
 
-
 import com.example.msauth.entity.AuthUser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
-
 
 
 import javax.annotation.PostConstruct;
@@ -16,18 +13,15 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-
 @Component
-public class JwtProvider 	{
+public class JwtProvider {
     @Value("${jwt.secret}")
     private String secret;
-
 
     @PostConstruct
     protected void init() {
         secret = Base64.getEncoder().encodeToString(secret.getBytes());
     }
-
 
     public String createToken(AuthUser authUser) {
         Map<String, Object> claims = new HashMap<>();
@@ -62,4 +56,5 @@ public class JwtProvider 	{
             return "bad token";
         }
     }
+
 }
