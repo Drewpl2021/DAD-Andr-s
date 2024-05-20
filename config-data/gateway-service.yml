@@ -21,12 +21,22 @@ spring:
           uri: lb://catalogo-service
           predicates:
             - Path=/categoria/** , /producto/**
+          filters:
+            - AuthFilter
         - id: cliente-service
           uri: lb://cliente-service
           predicates:
             - Path=/cliente/**
+          filters:
+            - AuthFilter
         - id: ms-pedido-service
           uri: lb://ms-pedido-service
           predicates:
             - Path=/pedido/**
+          filters:
+            - AuthFilter
+        - id: ms-auth-service
+          uri: lb://ms-auth-service
+          predicates:
+            - Path=/auth/**
 
